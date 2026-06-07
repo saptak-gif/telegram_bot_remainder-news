@@ -12,6 +12,7 @@ r = requests.post(
     url,
     data={
         "chat_id": CHAT_ID,
+        "bot_token": BOT_TOKEN,
         "text": message
     }
 )
