@@ -16,4 +16,5 @@ r = requests.post(
     }
 )
 
-print(r.text)
+print("STATUS:", r.status_code)
+print("RESPONSE:", r.text)
