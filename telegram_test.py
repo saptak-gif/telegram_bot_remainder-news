@@ -4,20 +4,16 @@ import os
 BOT_TOKEN = os.environ["BOT_TOKEN"]
 CHAT_ID = os.environ["CHAT_ID"]
 
-message = """
-Good morning!
-
-• AI News
-• Tech News
-• Internship Updates
-"""
+message = "Testing from GitHub Actions"
 
 url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
-requests.post(
+r = requests.post(
     url,
     data={
         "chat_id": CHAT_ID,
         "text": message
     }
 )
+
+print(r.text)
