@@ -1,3 +1,4 @@
+import requests
 import os
 
 BOT_TOKEN = os.environ["BOT_TOKEN"]
@@ -16,7 +17,7 @@ url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 requests.post(
     url,
     data={
-        "chat_id": 7105064562,
+        "chat_id": CHAT_ID,
         "text": message
     }
 )
