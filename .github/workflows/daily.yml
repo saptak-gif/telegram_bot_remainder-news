@@ -1,0 +1,25 @@
+name: Daily Briefing
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '0 3 * * *'
+
+jobs:
+  send_message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install requests
+
+      - run: python telegram_test.py
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
