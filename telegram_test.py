@@ -1,7 +1,7 @@
-import requests
+import os
 
-BOT_TOKEN = "8565676723:AAEKEI3w9oakwnMiw6kE6U2wbWqVxHs6S5I"
-CHAT_ID = "7105064562"
+BOT_TOKEN = os.environ["BOT_TOKEN"]
+CHAT_ID = os.environ["CHAT_ID"]
 
 message = """
 Good morning!
