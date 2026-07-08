@@ -1,8 +1,8 @@
 import feedparser
 
 RSS_FEEDS = {
-    "🌍 World News": "https://feeds.reuters.com/reuters/topNews",
-    "💻 Technology": "https://feeds.reuters.com/reuters/technologyNews",
+    "🌍 BBC World": "https://feeds.bbci.co.uk/news/world/rss.xml",
+    "💻 BBC Technology": "https://feeds.bbci.co.uk/news/technology/rss.xml",
 }
 
 def get_news():
@@ -11,9 +11,12 @@ def get_news():
     for category, url in RSS_FEEDS.items():
         feed = feedparser.parse(url)
 
+        # Debug output (visible in GitHub Actions logs)
+        print(f"{category}: {len(feed.entries)} articles found")
+
         message += f"{category}\n"
 
-        if len(feed.entries) == 0:
+        if not feed.entries:
             message += "• No news available.\n\n"
             continue
 
