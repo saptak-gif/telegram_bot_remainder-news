@@ -1,10 +1,11 @@
+from news import get_news
 import requests
 import os
 
 BOT_TOKEN = os.environ["BOT_TOKEN"]
 CHAT_ID = os.environ["CHAT_ID"]
 
-message = "Testing from GitHub Actions"
+message = get_news()
 
 url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
